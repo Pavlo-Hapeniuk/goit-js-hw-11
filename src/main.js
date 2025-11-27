@@ -7,13 +7,21 @@ import {
   showLoader,
   hideLoader,
 } from './js/render-functions';
+import iziToast from 'izitoast';
 
 const formElem = document.querySelector('.form');
 
 formElem.addEventListener('submit', e => {
   e.preventDefault();
   const searchText = e.target.elements['search-text'].value.trim();
-  if (!searchText) return;
+  if (!searchText) {
+    iziToast.warning({
+      message: `Please, enter something!`,
+      backgroundColor: '#ef4040',
+      position: 'topRight',
+    });
+    return;
+  }
 
   clearGallery();
   showLoader();
@@ -23,7 +31,12 @@ formElem.addEventListener('submit', e => {
       createGallery(hits);
     })
     .catch(error => {
-      console.error('Помилка завантаження зображень:', error);
+      console.error(error);
+      iziToast.error({
+        message: `Error! Please try again!`,
+        backgroundColor: '#ef4040',
+        position: 'topRight',
+      });
     })
     .finally(() => {
       hideLoader();

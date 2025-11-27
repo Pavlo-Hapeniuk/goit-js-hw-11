@@ -18,10 +18,11 @@ export function getImagesByQuery(query) {
     })
     .then(res => {
       if (!res.data.hits || res.data.hits.length === 0) {
-        iziToast.error({
+        iziToast.info({
           message: `Sorry, there are no images matching your search query. Please try again!`,
           backgroundColor: '#ef4040',
           position: 'topRight',
+          timeout: 3000,
         });
         return [];
       } else {
@@ -30,5 +31,12 @@ export function getImagesByQuery(query) {
     })
     .catch(error => {
       console.error(error);
+      iziToast.error({
+        message: `Something went wrong. Please try again later.`,
+        backgroundColor: '#ef4040',
+        position: 'topRight',
+        timeout: 4000,
+      });
+      return [];
     });
 }
