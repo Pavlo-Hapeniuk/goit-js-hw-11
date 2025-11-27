@@ -25,10 +25,10 @@ function cardTemplate({
           <img src="${webformatURL}" alt="${tags}" class="gallery-image" />
         </a>
         <div class="gallery-stats">
-          <p>Likes: <span class="likes">${likes}</span></p>
-          <p>Views: <span class="views">${views}</span></p>
-          <p>Comments: <span class="comments">${comments}</span></p>
-          <p>Downloads: <span class="downloads">${downloads}</span></p>
+          <p><strong>Likes</strong> <span class="likes">${likes}</span></p>
+          <p><strong>Views</strong> <span class="views">${views}</span></p>
+          <p><strong>Comments</strong> <span class="comments">${comments}</span></p>
+          <p><strong>Downloads</strong> <span class="downloads">${downloads}</span></p>
         </div>
       </li>`;
 }

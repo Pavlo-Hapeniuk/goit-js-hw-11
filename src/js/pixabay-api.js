@@ -23,7 +23,7 @@ export function getImagesByQuery(query) {
           backgroundColor: '#ef4040',
           position: 'topRight',
         });
-        return null;
+        return [];
       } else {
         return res.data.hits;
       }
